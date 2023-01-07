@@ -35,6 +35,7 @@ void Train::initialize(){
 	kCar1=KitchenCar();
 	kCar2=KitchenCar();
 	drivingCar=DrivingCar();
+	cCar1.frontDoorLocked=true;
 	double z=0;
 	z-=cCar1.getGoodLength();
 	kCar1.translate(0,0,z);

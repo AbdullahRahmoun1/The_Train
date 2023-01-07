@@ -51,6 +51,7 @@ TrainCar::TrainCar(bool hasMainDoor,bool hasConnecter,double collisionDistance){
 		tx=0;ty=0.85+scaledHeight/2.0+enginsThikness*scale;tz=0;
 		visible=true;
 		hasLight=false;
+		frontDoorLocked=false;
 		roofR=0.1;
 		wheelsAngle=0;
 		frontDoor=Door(true,ProjectTextures::door,ProjectTextures::rdoor);
@@ -230,7 +231,7 @@ void TrainCar::translate(double x,double y,double z){
 	tz+=z;
 }
 void TrainCar::openFrontDoor(){
-	if(canInteract(0,tz+scaledLength/2.0+scaledWallThikness/2.0,4))
+	if(canInteract(0,tz+scaledLength/2.0+scaledWallThikness/2.0,4) && !frontDoorLocked)
 	{
 		PlaySound(TEXT("Sounds/Door-open.wav"), NULL, SND_ASYNC);
 		frontDoor.open();

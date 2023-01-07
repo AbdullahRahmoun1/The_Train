@@ -1,10 +1,208 @@
-﻿Build started 1/7/2023 12:24:13 AM.
-     1>Project "C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\abdullah\abdullah.vcxproj" on node 2 (Build target(s)).
+﻿Build started 1/7/2023 10:50:16 PM.
+     1>Project "D:\GitHub\Project\abdullah\abdullah.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt PassengersCar.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt BedRoomCar.cpp Cargo.cpp CargoCar.cpp Chair.cpp Dimention.cpp Door.cpp DrivingCar.cpp Environment.cpp GLTexture.cpp KitchenCar.cpp MainDoor.cpp Model_3DS.cpp PassengersCar.cpp Player.cpp Point2.cpp PointCar.cpp ProjectTextures.cpp SideWall.cpp Source.cpp texture.cpp Train.cpp TrainCar.cpp UltimateCamera.cpp Wall.cpp Window.cpp
+         Window.cpp
+         Wall.cpp
+         UltimateCamera.cpp
+     1>d:\github\project\abdullah\bedroomcar.h(148): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(154): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(157): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(160): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(163): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(249): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(255): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(258): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(261): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(264): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\ultimatecamera.cpp(93): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+         TrainCar.cpp
+         Train.cpp
+     1>d:\github\project\abdullah\bedroomcar.h(148): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(154): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(157): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(160): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(163): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(249): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(255): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(258): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(261): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(264): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         texture.cpp
+     1>d:\github\project\abdullah\texture.cpp(42): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+         Source.cpp
+     1>d:\github\project\abdullah\bedroomcar.h(148): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(154): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(157): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(160): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(163): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(249): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(255): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(258): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(261): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(264): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\player.h(85): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(87): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(90): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(92): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(95): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\source.cpp(73): warning C4305: 'initializing' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\source.cpp(161): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\source.cpp(164): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\source.cpp(165): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\source.cpp(169): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\source.cpp(176): warning C4305: '+=' : truncation from 'double' to 'float'
+         SideWall.cpp
+         ProjectTextures.cpp
+         PointCar.cpp
+         Point2.cpp
+         Player.cpp
+     1>d:\github\project\abdullah\player.h(85): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(87): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(90): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(92): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(95): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.h(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(49): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\player.cpp(66): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(67): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\player.cpp(68): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(75): warning C4305: '*=' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\player.cpp(77): warning C4305: '*=' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\player.cpp(78): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>d:\github\project\abdullah\player.cpp(79): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(86): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(94): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>d:\github\project\abdullah\player.cpp(101): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
          PassengersCar.cpp
+         Model_3DS.cpp
+     1>d:\github\project\abdullah\model_3ds.cpp(160): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(357) : see declaration of 'sprintf'
+     1>d:\github\project\abdullah\model_3ds.cpp(182): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>d:\github\project\abdullah\model_3ds.cpp(212): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>d:\github\project\abdullah\model_3ds.cpp(891): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(357) : see declaration of 'sprintf'
+         MainDoor.cpp
+         KitchenCar.cpp
+     1>d:\github\project\abdullah\kitchencar.h(249): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(255): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(258): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(261): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.h(264): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\kitchencar.cpp(1044): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\kitchencar.cpp(1458): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+         GLTexture.cpp
+     1>d:\github\project\abdullah\gltexture.cpp(61): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>d:\github\project\abdullah\gltexture.cpp(61): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(241) : see declaration of 'strdup'
+     1>d:\github\project\abdullah\gltexture.cpp(65): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>d:\github\project\abdullah\gltexture.cpp(77): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>d:\github\project\abdullah\gltexture.cpp(142): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+         Environment.cpp
+     1>d:\github\project\abdullah\environment.cpp(329): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(343): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(367): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(380): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(397): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(409): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(420): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(431): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(438): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(502): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(512): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(524): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(539): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(602): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(602): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(603): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(603): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(604): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(604): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(605): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(605): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(615): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(615): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(616): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(616): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(617): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(617): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(618): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(618): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(626): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(626): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(627): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(627): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(628): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(628): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(629): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(629): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(637): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(637): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(638): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(638): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(639): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(639): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(640): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(640): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(648): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(648): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(649): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(649): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(650): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(651): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(659): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(659): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(660): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(661): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(662): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>d:\github\project\abdullah\environment.cpp(662): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(824): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(826): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(847): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(849): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(871): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(874): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(882): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(882): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(886): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\environment.cpp(893): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         DrivingCar.cpp
+     1>d:\github\project\abdullah\drivingcar.cpp(120): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\drivingcar.cpp(126): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\drivingcar.cpp(129): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\drivingcar.cpp(132): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\drivingcar.cpp(135): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         Door.cpp
+     1>d:\github\project\abdullah\door.cpp(28): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         Generating Code...
+         Compiling...
+         Dimention.cpp
+         Chair.cpp
+         CargoCar.cpp
+         Cargo.cpp
+     1>d:\github\project\abdullah\cargo.cpp(124): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\cargo.cpp(130): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\cargo.cpp(133): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\cargo.cpp(136): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\cargo.cpp(139): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         BedRoomCar.cpp
+     1>d:\github\project\abdullah\bedroomcar.h(148): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(154): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(157): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(160): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\project\abdullah\bedroomcar.h(163): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\Debug\abdullah.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\Debug\abdullah.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\Debug\abdullah.lib" /MACHINE:X86 Debug\BedRoomCar.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\Project\Debug\abdullah.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\Project\Debug\abdullah.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\Project\Debug\abdullah.lib" /MACHINE:X86 Debug\BedRoomCar.obj
          Debug\Cargo.obj
          Debug\CargoCar.obj
          Debug\Chair.obj
@@ -29,9 +227,9 @@
          Debug\UltimateCamera.obj
          Debug\Wall.obj
          Debug\Window.obj
-         abdullah.vcxproj -> C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\Debug\abdullah.exe
-     1>Done Building Project "C:\Users\ASUS\Documents\Visual Studio 2012\Projects\Porject\abdullah\abdullah.vcxproj" (Build target(s)).
+         abdullah.vcxproj -> D:\GitHub\Project\Debug\abdullah.exe
+     1>Done Building Project "D:\GitHub\Project\abdullah\abdullah.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.82
+Time Elapsed 00:00:12.42

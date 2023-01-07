@@ -24,7 +24,7 @@ public:
 	MainDoor mainDoor;
 	Wall aboveDoor,lConnecterGlass,rConnecterGlass,engins,carpet;
 	double wheelsAngle;
-	bool hasMainDoor,hasConnecter,hasLight;
+	bool hasMainDoor,hasConnecter,hasLight,frontDoorLocked;
 	double roofR,horizontalBox;
 	double tx,ty,tz;
 	static int wheelsListId,CarListId,roofListId
