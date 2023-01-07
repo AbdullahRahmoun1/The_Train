@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\TrainCar">
+      <UniqueIdentifier>{eaf8eac0-9525-4e7c-be6f-f8bb1a5882ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TrainCar">
+      <UniqueIdentifier>{eaa6b5c4-37e5-4af3-8f79-41d5bc5f00df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Cars">
+      <UniqueIdentifier>{a5d54742-1f55-40fa-abd3-82c2274d37c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Cars">
+      <UniqueIdentifier>{cfac6a86-ae2a-46f1-9a2b-09f8a887c7a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{aa2e364f-60f7-4009-81c0-a1b611723dcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{84d7c7da-63fe-48bd-8d8e-fd779e341f96}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Chair.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Dimention.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="MainDoor.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Point2.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="PointCar.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="SideWall.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="TrainCar.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectTextures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UltimateCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Train.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BedRoomCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Cargo.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="CargoCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="KitchenCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="PassengersCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+    <ClCompile Include="Environment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_3DS.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="GLTexture.cpp">
+      <Filter>Source Files\TrainCar</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrivingCar.cpp">
+      <Filter>Source Files\Cars</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="out.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ProjectTextures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chair.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="Dimention.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="MainDoor.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="Point2.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="PointCar.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="SideWall.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="TrainCar.h">
+      <Filter>Header Files\TrainCar</Filter>
+    </ClInclude>
+    <ClInclude Include="UltimateCamera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BedRoomCar.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Cargo.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="CargoCar.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="KitchenCar.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="PassengersCar.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="Environment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLTexture.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Model_3DS.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Train.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+    <ClInclude Include="DrivingCar.h">
+      <Filter>Header Files\Cars</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
