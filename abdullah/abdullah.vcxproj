@@ -67,6 +67,7 @@
     <ClCompile Include="Cargo.cpp" />
     <ClCompile Include="CargoCar.cpp" />
     <ClCompile Include="Chair.cpp" />
+    <ClCompile Include="Chess.cpp" />
     <ClCompile Include="Dimention.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="DrivingCar.cpp" />
@@ -76,12 +77,15 @@
     <ClCompile Include="MainDoor.cpp" />
     <ClCompile Include="Model_3DS.cpp" />
     <ClCompile Include="PassengersCar.cpp" />
+    <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Point.cpp" />
     <ClCompile Include="Point2.cpp" />
     <ClCompile Include="PointCar.cpp" />
     <ClCompile Include="ProjectTextures.cpp" />
     <ClCompile Include="SideWall.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Step.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="Train.cpp" />
     <ClCompile Include="TrainCar.cpp" />
@@ -97,6 +101,7 @@
     <ClInclude Include="Cargo.h" />
     <ClInclude Include="CargoCar.h" />
     <ClInclude Include="Chair.h" />
+    <ClInclude Include="Chess.h" />
     <ClInclude Include="Dimention.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="DrivingCar.h" />
@@ -106,11 +111,14 @@
     <ClInclude Include="MainDoor.h" />
     <ClInclude Include="Model_3DS.h" />
     <ClInclude Include="PassengersCar.h" />
+    <ClInclude Include="Pawn.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Point.h" />
     <ClInclude Include="Point2.h" />
     <ClInclude Include="PointCar.h" />
     <ClInclude Include="ProjectTextures.h" />
     <ClInclude Include="SideWall.h" />
+    <ClInclude Include="Step.h" />
     <ClInclude Include="Train.h" />
     <ClInclude Include="TrainCar.h" />
     <ClInclude Include="UltimateCamera.h" />

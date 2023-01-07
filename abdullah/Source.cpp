@@ -1,9 +1,8 @@
-
+#pragma once
 #include <windows.h>		// Header File For Windows
 #include <gl\gl.h>			// Header File For The OpenGL32 Library
 #include <gl\glu.h>			// Header File For The GLu32 Library
 #include <glaux.h>		// Header File For The Glaux Library
-#include <texture.h>
 #include <iostream>
 #include <math.h>
 #include <string>
@@ -28,7 +27,12 @@
 #include "Environment.h"
 #include "Player.h"
 #include "DrivingCar.h"
-
+#include "Point.h"
+#include "Chess.h"
+#include "Pawn.h"
+#include "Step.h"
+#include <stack>
+std::stack <Step> steps;
 
 
 HDC			hDC = NULL;		// Private GDI Device Context
@@ -70,8 +74,8 @@ void keyBoard();
 GLfloat LightPos[] = { 50, 100 ,0}; 
 GLfloat LightPos2[] = { 0, 10 ,0}; 
 
-GLfloat LightAmb[] = { 0.7, 0.7, 0.7, 1.0f };
-GLfloat LightDiff[] = { 1, 1, 1, 1.0f }; 
+GLfloat LightAmb[] = { 0.5, 0.5, 0.5, 1.0f };
+GLfloat LightDiff[] = { 0.8, 0.8, 0.8, 1.0f };
 GLfloat LightSpec[] = { 0.5, 0.5, 0.5,1.0f }; 
  
  
@@ -79,6 +83,21 @@ GLfloat MatAmb[] = { 1.0f,1.0f,1.0f,1.0f };
 GLfloat MatDif[] = { 0.6f,0.6f,0.6f,1.0f }; 
 GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f }; 
 GLfloat MatShn[] = { 128.0f };
+
+float m=0;
+float ll = 0;
+// start of chess game......................................................................................................................
+
+int   test,winner1,winner2,back2;
+bool firstplayer , secondplayer , endgame , firstwin , secondwin ,canStepBack ;
+bool hasPawn[8][8];
+int raw,column;
+int stepBackCounter;
+
+void initializer();
+
+
+
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
@@ -116,11 +135,1152 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	ProjectTextures::initialize();
 	Train::initialize();
 	Environment::initialize();
+
+	winner1 = LoadTexture("winner1.bmp",255);
+	winner2 = LoadTexture("winner2.bmp",255);
+	back2 = LoadTexture("back222.bmp",255);
+	test = LoadTexture("test.bmp",255);
+	initializer();
 	
 	PlaySound(TEXT("sounds/Train-Beginning.wav"), NULL, SND_ASYNC | SND_LOOP);
 	return TRUE;										// Initialization Went OK
 }
-float m=0;
+
+
+
+
+Pawn firstpawn[3],secondpawn[3];
+void initializer()
+{
+	
+	stepBackCounter = 3;
+
+	firstplayer = true;
+	secondplayer = false;
+
+	endgame = false;
+	
+	canStepBack = false;
+
+	firstwin = secondwin = false;
+
+
+	for(int i=0;i<8;i++)
+		for(int j=0;j<8;j++)
+			hasPawn[i][j]=false;
+
+	while(!steps.empty())
+	{
+		steps.pop();
+	}
+
+	int x1 = rand() % 8,x2,x3,x=0,xx=0,xxx=0;
+	x2 = x1;
+	while(x2==x1)
+	{
+		x2 = rand() % 8;
+	}
+	x3 = x2;
+	while(x3==x2 || x3==x1)
+	{
+		x3 = rand() % 8;
+	}
+	
+	if(x1>x2)
+	{
+		if(x1>x3)
+		{
+			xxx = x1;
+			if(x3>x2)
+			{
+				xx = x3;
+				x = x2;
+			}
+			else
+			{
+				xx = x2;
+				x = x3;
+			}
+		}
+		else
+		{
+			xxx = x3;
+			xx = x1;
+			x = x2;
+		}
+	}
+	else
+	{
+		if(x2>x3)
+		{
+			xxx = x2;
+			if(x1>x3)
+			{
+				xx = x1;
+				x = x3;
+			}
+			else
+			{
+				xx = x3;
+				x = x1;
+			}
+		}
+		else
+		{
+			xxx = x3;
+			xx = x2;
+			x = x1;
+		}
+	}
+
+
+	// first player 
+		
+	firstpawn[0] = Pawn(0.45,0.2,true,true,x,0);
+	firstpawn[1] = Pawn(0.45,0.2,true,true,xx,0);
+	firstpawn[2] = Pawn(0.45,0.2,true,true,xxx,0);
+
+
+	x1 = rand() % 8;
+	x2 = x1;
+	while(x2==x1)
+	{
+		x2 = rand() % 8;
+	}
+	x3 = x2;
+	while(x3==x2 || x3==x1)
+	{
+		x3 = rand() % 8;
+	}
+	
+	if(x1>x2)
+	{
+		if(x1>x3)
+		{
+			xxx = x1;
+			if(x3>x2)
+			{
+				xx = x3;
+				x = x2;
+			}
+			else
+			{
+				xx = x2;
+				x = x3;
+			}
+		}
+		else
+		{
+			xxx = x3;
+			xx = x1;
+			x = x2;
+		}
+	}
+	else
+	{
+		if(x2>x3)
+		{
+			xxx = x2;
+			if(x1>x3)
+			{
+				xx = x1;
+				x = x3;
+			}
+			else
+			{
+				xx = x3;
+				x = x1;
+			}
+		}
+		else
+		{
+			xxx = x3;
+			xx = x2;
+			x = x1;
+		}
+	}
+
+	// second player
+
+	secondpawn[0] = Pawn(0.45,0.2,false,true,x,7);
+	secondpawn[1] = Pawn(0.45,0.2,false,true,xx,7);
+	secondpawn[2] = Pawn(0.45,0.2,false,true,xxx,7);
+}
+void move()
+{
+	if(firstplayer)
+	{
+	
+		if(keys[VK_F1] && firstpawn[0].isLive)
+		{
+			raw = firstpawn[0].y;
+			column = firstpawn[0].x;
+			if(raw<7 && column<7)
+			{
+				if(hasPawn[raw+1][column+1])
+				{
+					if(keys['E'] && !((column+1)==firstpawn[1].x && (raw+1)==firstpawn[1].y) && !((column+1)==firstpawn[2].x  && (raw+1)==firstpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[0].x,firstpawn[0].y,firstpawn[0].x+1,firstpawn[0].y+1,1);
+						}
+						firstpawn[0].x++;
+						firstpawn[0].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column+1)==secondpawn[0].x && (raw+1)==secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==secondpawn[1].x && (raw+1)==secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}						
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+						return;
+					}
+				}
+				if(hasPawn[raw+1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==firstpawn[1].x && (raw+1)==firstpawn[1].y) && !((column-1)==firstpawn[2].x  && (raw+1)==firstpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[0].x,firstpawn[0].y,firstpawn[0].x-1,firstpawn[0].y+1,1);
+						}
+						firstpawn[0].x--;
+						firstpawn[0].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column-1)==secondpawn[0].x && (raw+1)==secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==secondpawn[1].x && (raw+1)==secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+
+			}
+			//......................
+
+			if(keys[VK_UP] && raw<7 && !hasPawn[raw+1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[0].x,firstpawn[0].y,firstpawn[0].x,firstpawn[0].y+1,1);
+					steps.push(s);
+				}
+				firstpawn[0].y++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[0].x,firstpawn[0].y,firstpawn[0].x+1,firstpawn[0].y,1);
+					steps.push(s);
+				}
+				firstpawn[0].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[0].x,firstpawn[0].y,firstpawn[0].x-1,firstpawn[0].y,1);
+					steps.push(s);
+				}
+				firstpawn[0].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+		}
+		if(keys[VK_F2] && firstpawn[1].isLive)
+		{
+			raw = (int) firstpawn[1].y;
+			column = (int) firstpawn[1].x;
+			if(raw<7 && column<7)
+			{
+				if(hasPawn[raw+1][column+1])
+				{
+					if(keys['E'] && !((column+1)==(int)firstpawn[0].x && (raw+1)==(int)firstpawn[0].y) && !((column+1)==(int)firstpawn[2].x  && (raw+1)==(int)firstpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[1].x,firstpawn[1].y,firstpawn[1].x+1,firstpawn[1].y+1,2);
+						}
+						firstpawn[1].x++;
+						firstpawn[1].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column+1)==(int)secondpawn[0].x && (raw+1)==(int)secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==(int)secondpawn[1].x && (raw+1)==(int)secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+				if(hasPawn[raw+1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==(int)firstpawn[0].x && (raw+1)==(int)firstpawn[0].y) && !((column-1)==(int)firstpawn[2].x  && (raw+1)==(int)firstpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[1].x,firstpawn[1].y,firstpawn[1].x-1,firstpawn[1].y+1,2);
+						}
+						firstpawn[1].x--;
+						firstpawn[1].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column-1)==(int)secondpawn[0].x && (raw+1)==(int)secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==(int)secondpawn[1].x && (raw+1)==(int)secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+			}
+
+			if(keys[VK_UP] && raw<7 && !hasPawn[raw+1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[1].x,firstpawn[1].y,firstpawn[1].x,firstpawn[1].y+1,2);
+					steps.push(s);
+				}
+				firstpawn[1].y++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[1].x,firstpawn[1].y,firstpawn[1].x+1,firstpawn[1].y,2);
+					steps.push(s);
+				}
+				firstpawn[1].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[1].x,firstpawn[1].y,firstpawn[1].x-1,firstpawn[1].y,2);
+					steps.push(s);
+				}
+				firstpawn[1].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+		}
+	
+		if(keys[VK_F3] && firstpawn[2].isLive)
+		{
+			raw = (int) firstpawn[2].y;
+			column = (int) firstpawn[2].x;
+			if(raw<7 && column<7)
+			{
+				if(hasPawn[raw+1][column+1])
+				{
+					if(keys['E'] && !((column+1)==(int)firstpawn[0].x && (raw+1)==(int)firstpawn[0].y) && !((column+1)==(int)firstpawn[1].x && (raw+1)==(int)firstpawn[1].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[2].x,firstpawn[2].y,firstpawn[2].x+1,firstpawn[2].y+1,3);
+						}
+						firstpawn[2].x++;
+						firstpawn[2].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column+1)==(int)secondpawn[0].x && (raw+1)==(int)secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==(int)secondpawn[1].x && (raw+1)==(int)secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+				if(hasPawn[raw+1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==(int)firstpawn[0].x && (raw+1)==(int)firstpawn[0].y) && !((column-1)==(int)firstpawn[1].x && (raw+1)==(int)firstpawn[1].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(true,firstpawn[2].x,firstpawn[2].y,firstpawn[2].x-1,firstpawn[2].y+1,3);
+						}
+						firstpawn[2].x--;
+						firstpawn[2].y++;
+						hasPawn[raw][column] = false;
+						firstplayer=false;
+						secondplayer = true;
+						if((column-1)==(int)secondpawn[0].x && (raw+1)==(int)secondpawn[0].y)
+						{
+							secondpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==(int)secondpawn[1].x && (raw+1)==(int)secondpawn[1].y)
+						{
+							secondpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							secondpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+			}
+
+			if(keys[VK_UP] && raw<7 && !hasPawn[raw+1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[2].x,firstpawn[2].y,firstpawn[2].x,firstpawn[2].y+1,3);
+					steps.push(s);
+				}
+				firstpawn[2].y++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[2].x,firstpawn[2].y,firstpawn[2].x+1,firstpawn[2].y,3);
+					steps.push(s);
+				}
+				firstpawn[2].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(true,firstpawn[2].x,firstpawn[2].y,firstpawn[2].x-1,firstpawn[2].y,3);
+					steps.push(s);
+				}
+				firstpawn[2].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=false;
+				secondplayer = true;
+				return;
+			}
+		}
+	}
+	else
+	{
+		if(keys['1'] && secondpawn[0].isLive)
+		{
+			raw  = (int) secondpawn[0].y;
+			column  = (int) secondpawn[0].x;
+			if(raw>0 && column<7)
+			{
+				if(hasPawn[raw-1][column+1])
+				{
+					if(keys['E'] && !((column+1)==(int)secondpawn[1].x && (raw-1)==(int)secondpawn[1].y) && !((column+1)==(int)secondpawn[2].x && (raw-1)==(int)secondpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[0].x,secondpawn[0].y,secondpawn[0].x+1,secondpawn[0].y-1,1);
+						}
+						secondpawn[0].x++;
+						secondpawn[0].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column+1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+				if(hasPawn[raw-1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==(int)secondpawn[1].x && (raw-1)==(int)secondpawn[1].y) && !((column-1)==(int)secondpawn[2].x && (raw-1)==(int)secondpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[0].x,secondpawn[0].y,secondpawn[0].x-1,secondpawn[0].y-1,1);
+						}
+						secondpawn[0].x--;
+						secondpawn[0].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column-1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+			}
+
+			if(keys[VK_DOWN] && raw>0 && !hasPawn[raw-1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[0].x,secondpawn[0].y,secondpawn[0].x,secondpawn[0].y-1,1);
+					steps.push(s);
+				}
+				secondpawn[0].y--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[0].x,secondpawn[0].y,secondpawn[0].x+1,secondpawn[0].y,1);
+					steps.push(s);
+				}
+				secondpawn[0].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[0].x,secondpawn[0].y,secondpawn[0].x-1,secondpawn[0].y,1);
+					steps.push(s);
+				}
+				secondpawn[0].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+		}
+
+		if(keys['2'] && secondpawn[1].isLive)
+		{
+			raw  = (int) secondpawn[1].y;
+			column  = (int) secondpawn[1].x;
+			if(raw>0 && column<7)
+			{
+				if(hasPawn[raw-1][column+1])
+				{
+					if(keys['E'] && !((column+1)==(int)secondpawn[0].x && (raw-1)==(int)secondpawn[0].y) && !((column+1)==(int)secondpawn[2].x && (raw-1)==(int)secondpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[1].x,secondpawn[1].y,secondpawn[1].x+1,secondpawn[1].y-1,2);
+						}
+						secondpawn[1].x++;
+						secondpawn[1].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column+1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+				if(hasPawn[raw-1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==(int)secondpawn[0].x && (raw-1)==(int)secondpawn[0].y) && !((column-1)==(int)secondpawn[2].x && (raw-1)==(int)secondpawn[2].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[1].x,secondpawn[1].y,secondpawn[1].x-1,secondpawn[1].y-1,2);
+						}
+						secondpawn[1].x--;
+						secondpawn[1].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column-1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+			}
+
+			if(keys[VK_DOWN] && raw>0 && !hasPawn[raw-1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[1].x,secondpawn[1].y,secondpawn[1].x,secondpawn[1].y-1,2);
+					steps.push(s);
+				}
+				secondpawn[1].y--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[1].x,secondpawn[1].y,secondpawn[1].x+1,secondpawn[1].y,2);
+					steps.push(s);
+				}
+				secondpawn[1].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[1].x,secondpawn[1].y,secondpawn[1].x-1,secondpawn[1].y,2);
+					steps.push(s);
+				}
+				secondpawn[1].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+		}
+
+		if(keys['3'] && secondpawn[2].isLive)
+		{
+			raw  = (int) secondpawn[2].y;
+			column  = (int) secondpawn[2].x;
+			if(raw>0 && column<7)
+			{
+				if(hasPawn[raw-1][column+1])
+				{
+					if(keys['E'] && !((column+1)==(int)secondpawn[0].x && (raw-1)==(int)secondpawn[0].y) && !((column+1)==(int)secondpawn[1].x && (raw-1)==(int)secondpawn[1].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[2].x,secondpawn[2].y,secondpawn[2].x+1,secondpawn[2].y-1,3);
+						}
+						secondpawn[2].x++;
+						secondpawn[2].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column+1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column+1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+				if(hasPawn[raw-1][column-1])
+				{
+					if(keys['Q'] && !((column-1)==(int)secondpawn[0].x && (raw-1)==(int)secondpawn[0].y) && !((column-1)==(int)secondpawn[1].x && (raw-1)==(int)secondpawn[1].y))
+					{
+						Step s;
+						if(canStepBack)
+						{
+							s = Step(false,secondpawn[2].x,secondpawn[2].y,secondpawn[2].x-1,secondpawn[2].y-1,3);
+						}
+						secondpawn[2].x--;
+						secondpawn[2].y--;
+						hasPawn[raw][column] = false;
+						firstplayer=true;
+						secondplayer = false;
+						if((column-1)==(int)firstpawn[0].x && (raw-1)==(int)firstpawn[0].y)
+						{
+							firstpawn[0].isLive = false;
+							if(canStepBack)
+								s.dead = 0;
+						}
+						else if((column-1)==(int)firstpawn[1].x && (raw-1)==(int)firstpawn[1].y)
+						{
+							firstpawn[1].isLive = false;
+							if(canStepBack)
+								s.dead = 1;
+						}
+						else 
+						{
+							firstpawn[2].isLive = false;
+							if(canStepBack)
+								s.dead = 2;
+						}
+						steps.push(s);
+
+						return;
+					}
+				}
+			}
+
+			if(keys[VK_DOWN] && raw>0 && !hasPawn[raw-1][column])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[2].x,secondpawn[2].y,secondpawn[2].x,secondpawn[2].y-1,3);
+					steps.push(s);
+				}
+				secondpawn[2].y--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_RIGHT] && column<7 && !hasPawn[raw][column+1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[2].x,secondpawn[2].y,secondpawn[2].x+1,secondpawn[2].y,3);
+					steps.push(s);
+				}
+				secondpawn[2].x++;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+				return;
+			}
+			if(keys[VK_LEFT] && column>0 && !hasPawn[raw][column-1])
+			{
+				if(canStepBack)
+				{
+					Step s = Step(false,secondpawn[2].x,secondpawn[2].y,secondpawn[2].x-1,secondpawn[2].y,3);
+					steps.push(s);
+				}
+				secondpawn[2].x--;
+				hasPawn[raw][column] = false;
+				firstplayer=true;
+				secondplayer = false;
+			}
+		}
+	} 
+	
+}
+void DrawPawns()
+{
+	glBindTexture(GL_TEXTURE_2D,test);
+
+	if(firstpawn[0].isLive)
+	{
+		firstpawn[0].builder();
+		hasPawn[(int)firstpawn[0].y][(int)firstpawn[0].x] = true;
+	}
+	if(firstpawn[1].isLive)
+	{
+		firstpawn[1].builder();
+		hasPawn[(int)firstpawn[1].y][(int)firstpawn[1].x] = true;
+
+	}
+	if(firstpawn[2].isLive)
+	{
+		firstpawn[2].builder();
+		hasPawn[(int)firstpawn[2].y][(int)firstpawn[2].x] = true;
+
+	}
+	if(secondpawn[0].isLive)
+	{
+		secondpawn[0].builder();
+		hasPawn[(int)secondpawn[0].y][(int)secondpawn[0].x] = true;
+
+	}
+	if(secondpawn[1].isLive)
+	{
+		
+
+		secondpawn[1].builder();
+		hasPawn[(int)secondpawn[1].y][(int)secondpawn[1].x] = true;
+		 
+	}
+	if(secondpawn[2].isLive)
+	{
+		secondpawn[2].builder();
+		hasPawn[(int)secondpawn[2].y][(int)secondpawn[2].x] = true;
+	}
+	
+}
+
+void endGame()
+{
+	glColor3d(1,1,1);
+	if(firstwin)
+		glBindTexture(GL_TEXTURE_2D,winner1);
+	else
+		glBindTexture(GL_TEXTURE_2D,winner2);
+
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,1);
+		glVertex2d(-6,4);
+		glTexCoord2d(1,1);
+		glVertex2d(6,4);
+		glTexCoord2d(1,0);
+		glVertex2d(6,-4);
+		glTexCoord2d(0,0);
+		glVertex2d(-6,-4);
+	glEnd();
+}
+
+void checkIfEnd()
+{
+	if((!firstpawn[0].isLive && !firstpawn[1].isLive && !firstpawn[2].isLive) || secondpawn[0].y==0 || secondpawn[1].y==0 || secondpawn[2].y==0)
+	{
+		secondwin = true;
+		endgame = true;
+		return;
+	}
+	if((!secondpawn[0].isLive && !secondpawn[1].isLive && !secondpawn[2].isLive) || firstpawn[0].y==7 || firstpawn[1].y==7 || firstpawn[2].y==7)
+	{
+		firstwin = true;
+		endgame = true;
+	}
+}
+
+void playAgain()
+{
+	if(keys[VK_SPACE])
+		initializer();
+		
+}
+
+void player()
+{
+	glPushMatrix();
+		if(firstplayer)
+		{
+			glTranslated(9,0.5,0);
+			glColor3d(1,0,0);
+			glBegin(GL_TRIANGLE_FAN);
+			glVertex2d(0,0);
+			for(double a=0;a<=6.3;a+=0.1)
+				glVertex2d(0.5*cos(a),0.5*sin(a));
+			glEnd();
+			glColor3d(1,1,1);
+		}
+		else
+		{
+			glTranslated(9,6.5,0);
+			glColor3d(0,1,0);
+			glBegin(GL_TRIANGLE_FAN);
+			glVertex2d(0,0);
+			for(double a=0;a<=6.3;a+=0.1)
+				glVertex2d(0.5*cos(a),0.5*sin(a));
+			glEnd();
+			glColor3d(1,1,1);
+
+		}
+	glPopMatrix();
+}
+
+void backTex()
+{
+	glPushMatrix();
+		glTranslated(9,3.5,0);
+		glBindTexture(GL_TEXTURE_2D,back2);
+		glBegin(GL_QUADS);
+			glTexCoord2d(0,1);
+			glVertex2d(-0.5,0.5);
+			glTexCoord2d(1,1);
+			glVertex2d(0.5,0.5);
+			glTexCoord2d(1,0);
+			glVertex2d(0.5,-0.5);
+			glTexCoord2d(0,0);
+			glVertex2d(-0.5,-0.5);
+		glEnd();
+	glPopMatrix();
+}
+
+void backStep()
+{
+	canStepBack = stepBackCounter>0;
+	if(keys[VK_BACK] && !steps.empty() && canStepBack)
+	{
+		keys[VK_BACK] = false;
+		stepBackCounter--;
+		Step s = steps.top();
+		steps.pop();
+		if(s.firstPlayer)
+		{
+			if(s.pawnNumber==1)
+			{
+				firstpawn[0].x = s.x;
+				firstpawn[0].y = s.y;
+			}
+			else if(s.pawnNumber==2)
+			{
+				firstpawn[1].x = s.x;
+				firstpawn[1].y = s.y;
+				
+			}
+			else
+			{
+				firstpawn[2].x = s.x;
+				firstpawn[2].y = s.y;
+			}
+
+			if(s.dead != -1)
+				secondpawn[s.dead].isLive = true;
+
+			firstplayer = true;
+			secondplayer = false;
+			hasPawn[(int)s.newy][(int)s.newx] = false;
+		}
+		else
+		{
+			if(s.pawnNumber==1)
+			{
+				secondpawn[0].x = s.x;
+				secondpawn[0].y = s.y;
+			}
+			else if(s.pawnNumber==2)
+			{
+				secondpawn[1].x = s.x;
+				secondpawn[1].y = s.y;
+			}
+			else
+			{
+				secondpawn[2].x = s.x;
+				secondpawn[2].y = s.y;
+			}
+
+			if(s.dead != -1)
+				firstpawn[s.dead].isLive = true;
+
+			firstplayer = false;
+			secondplayer = true;
+			hasPawn[(int)s.newy][(int)s.newx] = false;
+
+		}
+	}
+}
+
+
+void drawChess()
+{
+	glPushMatrix();
+	glTranslatef(0, 0, -15);
+	if(!endgame)
+	{
+		glPushMatrix();
+			Chess c = Chess(8);
+			c.builder();
+			glTranslated(-3.5,-3.5,0);
+			backTex();
+			player();
+			DrawPawns();
+			move();
+			backStep();
+		glPopMatrix();
+	}
+	else
+	    endGame();
+
+	checkIfEnd();
+	playAgain();
+	glPopMatrix();
+}
+
+
+
+// end of chess game......................................................................................................................
+
+
+bool playChess;     // for switching between chess and env
+
 void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 {
 	
@@ -128,7 +1288,22 @@ void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	glLoadIdentity();	
 	
 	//---------- utils ----------------
-	UltimateCamera::mouseX = mouseX; 
+
+	if(keys['N'])
+	{
+		playChess = !playChess;
+	}
+
+	if(playChess)
+	{
+		glEnable(GL_LIGHT1);     // for lightining the chess
+		drawChess();
+		glDisable(GL_LIGHT1);
+
+	}
+	else
+	{
+		UltimateCamera::mouseX = mouseX; 
 	UltimateCamera::mouseY = mouseY;
 	Train::interact(keys);
 	if(keys[VK_TAB])UltimateCamera::firstPerson=true;
@@ -143,20 +1318,24 @@ void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 		glEnable(GL_LIGHT2);
 
 		Environment::draw();
-		Environment::translate(1.5);
+		if(keys['X'])
+		{
+			ll += 0.1;
+		}
+		if(keys['V'])
+		{
+			ll -= 0.1;
+		}
+		Environment::translate(ll);
 		glPopMatrix();
 
 
 		Train::draw();
 	}
+	}
+
 	//SwapBuffers(hDC);
 }
-
-
-
-
-
-
 //handle keyboard and walking and camera!
 float hAngle=3.14/2,walking=0;
 Point2 eye=Point2(0,1.0,0),target=Point2(0,0.5,-10);
@@ -164,24 +1343,24 @@ void keyBoard(){
 	float plus=0.5,p=0.05;
 	float y=eye.y,ty=target.y;
 	if(keys['W']){
-			eye.z-=plus/2.0;
-			target.z-=plus/2.0;
+			eye.z-=plus/2.0 * 3;
+			target.z-=plus/2.0 * 3;
 			walking+=0.1;
 			//y=eye.y+(abs(sin(walking))/12);
 			//ty=target.y+(abs(sin(walking))/12);
 	}
 	if(keys['S']){
-			eye.z+=plus/2.0;
-			target.z+=plus/2.0;
+			eye.z+=plus/2.0*3;
+			target.z+=plus/2.0*3;
 			walking+=0.1;
 	}
 	if(keys['A']){
-		eye.x-=plus;
-		target.x-=plus;
+		eye.x-=plus*2;
+		target.x-=plus*2;
 	}
 	if(keys['D']){
-			eye.x+=plus;
-			target.x+=plus;
+			eye.x+=plus*2;
+			target.x+=plus*2;
 	}
 	if(keys['F']){
 		eye.y+=plus;
@@ -200,12 +1379,12 @@ void keyBoard(){
 	if(keys[VK_DOWN]&& abs( target.y-eye.y)<4)
 		target.y-=p;
 	if(keys[VK_RIGHT] ){
-		hAngle-=p;
+		hAngle-=p/2;
 		target.x=eye.x+cos(hAngle);
 		target.z=(eye.z-sin(hAngle));
 		}
 	if(keys[VK_LEFT] ){
-		hAngle+=p;
+		hAngle+=p/2;
 		target.x=eye.x+cos(hAngle);
 		target.z=(eye.z-sin(hAngle));
 		}
@@ -567,13 +1746,13 @@ int WINAPI WinMain(HINSTANCE	hInstance,			// Instance
 				}
 			}
 
-			if (keys[VK_F1])						// Is F1 Being Pressed?
+			if (keys[VK_F7])						// Is F1 Being Pressed?
 			{
-				keys[VK_F1] = FALSE;					// If So Make Key FALSE
+				keys[VK_F7] = FALSE;					// If So Make Key FALSE
 				KillGLWindow();						// Kill Our Current Window
 				fullscreen = !fullscreen;				// Toggle Fullscreen / Windowed Mode
 														// Recreate Our OpenGL Window
-				if (!CreateGLWindow("OpenGL template", 640, 480, 16, fullscreen))
+				if (!CreateGLWindow("OpenGL template", 1920, 1080, 15.6, fullscreen))
 				{
 					return 0;						// Quit If Window Was Not Created
 				}
