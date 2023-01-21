@@ -1,9 +1,4 @@
-﻿
-**Students :** 
-
-Abdullah Rahmoun Abdullah Musa     Alaa Shebany      Omran AlSahhar Adnan Alkhouli 
-
-**Intro** 
+﻿**Intro** 
 
 a C++ ( OpenGl ) game built by a group of students for a university project . 
 
