@@ -1,6 +1,5 @@
-﻿![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.001.png)
-
-**Students** : ![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.002.png)![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.003.png)
+﻿
+**Students :** 
 
 Abdullah Rahmoun Abdullah Musa     Alaa Shebany      Omran AlSahhar Adnan Alkhouli 
 
@@ -35,7 +34,6 @@ The main classes are :
 - UltimateCamera.cpp 
 - ProjectTextures.cpp 
 
-![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.004.png) ![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.005.png)
 
 **TrainCar** : 
 
@@ -91,7 +89,7 @@ The class responsible for drawing and managing the player movements , character 
 
 **Helper classes :** 
 
-These classes are used in TrainCar.cpp only ![](Aspose.Words.7edb58fc-b145-4461-9652-e748bcdce6ab.006.png)
+These classes are used in TrainCar.cpp only 
 
 Note :  
 
