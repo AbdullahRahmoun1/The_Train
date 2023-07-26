@@ -62,6 +62,8 @@ this class contains all the methods responsible for moving the camera around
 
 and it has the functions that controls the character movement and looking around 
 
+the camera was attached to the mouse so you can use it to navigate your surroundings with a free 360 degree view
+
 **important methods :** 
 
 - **UltimateCamera::cameraSitting(bool keys[], HWND hWnd)** the method we call in every frame to handle the camera movement**  
